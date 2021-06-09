@@ -26,7 +26,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Document(collection = "Passenger")
+@Document
 public class Passenger{
 
 	@Id
@@ -120,6 +120,7 @@ public class Passenger{
 	public void setPassAccount(List<PassAccount> passAccount) {
 		this.passAccount = passAccount;
 	}
+	
 	
 	
 //	  public Passenger(Passenger passenger) {

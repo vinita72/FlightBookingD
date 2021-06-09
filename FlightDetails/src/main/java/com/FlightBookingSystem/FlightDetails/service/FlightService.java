@@ -18,6 +18,21 @@ public class FlightService {
 	@Autowired
 	private FlightRepo repository;
 	
+	public FlightDetails saveflightDetails(FlightDetails flightDetails) {
+		return repository.save(flightDetails);
+	}
+	
+	public FlightDetails fetchFlightByDate(String date) {
+		return repository.findByDate(date);
+	}
+	
+	
+	  public FlightDetails fetchFlightDetailsByDateAndFromlocationAndTolocation(String date, String fromlocation, String tolocation)
+	  {
+		  return repository.findByDateAndFromlocationAndTolocation(date, fromlocation, tolocation);
+		  }
+	 
+	
 	/*
 	 * @Autowired private RestTemplate template;
 	 * 

@@ -1,6 +1,7 @@
 package com.FlightBookingSystem.FlightDetails.model;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -15,30 +16,32 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-// @Document(collection="Flight")
+@Document
 public class FlightDetails{
 	@Id
-	private int id;
-	private String from_location;
-	private String to_location;
+	private int id;	
+	private String fromlocation;
+	private String tolocation;
 	private int total_seats;
+	//private String FirstName;
+	//private String emailId;
+	//private String paymentStatus;
 	private double price;
 	
-	// private Date date;
+	private String date;
 	
-		
-	public FlightDetails(int id, String from_location, String to_location, int total_seats, double price) {
+	public FlightDetails() {
 		super();
-		this.id = id;
-		this.from_location = from_location;
-		this.to_location = to_location;
-		this.total_seats = total_seats;
-		this.price = price;
 	}
 
-
-	public FlightDetails(String emailId, String firstName, String paymentStatus) {
-		// TODO Auto-generated constructor stub
+	public FlightDetails(int id, String fromlocation, String tolocation, int total_seats, double price, String date) {
+		super();
+		this.id = id;
+		this.fromlocation = fromlocation;
+		this.tolocation = tolocation;
+		this.total_seats = total_seats;
+		this.price = price;
+		this.date = date;
 	}
 
 
@@ -48,17 +51,17 @@ public class FlightDetails{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getFrom_location() {
-		return from_location;
+	public String getFromlocation() {
+		return fromlocation;
 	}
-	public void setFrom_location(String from_location) {
-		this.from_location = from_location;
+	public void setFromlocation(String fromlocation) {
+		this.fromlocation = fromlocation;
 	}
-	public String getTo_location() {
-		return to_location;
+	public String getTolocation() {
+		return tolocation;
 	}
-	public void setTo_location(String to_location) {
-		this.to_location = to_location;
+	public void setTolocation(String tolocation) {
+		this.tolocation = tolocation;
 	}
 	public int getTotal_seats() {
 		return total_seats;
@@ -77,6 +80,24 @@ public class FlightDetails{
 		this.price = price;
 	}
 
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	@Override
+	public String toString() {
+		return "FlightDetails [id=" + id + ", fromlocation=" + fromlocation + ", tolocation=" + tolocation
+				+ ", total_seats=" + total_seats + ", price=" + price + ", date=" + date + "]";
+	}
+
+	
+
+	
 
 	/*
 	 * @Override public int size() { // TODO Auto-generated method stub return 0; }

@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Document(collection = "Passenger")
+@Document
 public class PassAccount {
 	private double accountNumber;
 	private String bankName;
