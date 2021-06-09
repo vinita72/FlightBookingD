@@ -18,11 +18,6 @@ import com.FlightBookingSystem.FlightDetails.repository.FlightRepo;
 @EnableEurekaClient
 public class FlightDetailsApplication implements CommandLineRunner{
 
-	@Bean
-	@LoadBalanced
-	public RestTemplate restTemplate() {
-		return new RestTemplate();
-	}
 	
 	@Autowired
 	public FlightRepo repository;

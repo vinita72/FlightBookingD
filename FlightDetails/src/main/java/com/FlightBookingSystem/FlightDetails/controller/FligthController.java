@@ -20,8 +20,6 @@ import org.springframework.web.client.RestTemplate;
 //import com.FlightBookingSystem.FlightDetails.common.TransactionRequest;
 //import com.FlightBookingSystem.FlightDetails.common.TransactionResponse;
 import com.FlightBookingSystem.FlightDetails.model.FlightDetails;
-import com.FlightBookingSystem.FlightDetails.model.Passenger;
-import com.FlightBookingSystem.FlightDetails.model.Payment;
 import com.FlightBookingSystem.FlightDetails.repository.FlightRepo;
 import com.FlightBookingSystem.FlightDetails.service.FlightService;
 
@@ -40,8 +38,7 @@ public class FligthController {
 		private FlightService service;
 		
 		
-		//@Autowired
-	  //  private RestTemplate restTemplate;
+		
 		
 		
 		
@@ -110,33 +107,10 @@ public class FligthController {
 			return flightDetailsObj;
 			  }
 			 
-			/*
-			 * @PostMapping("/searchFlightDetails") public FlightDetails
-			 * searchFlightDetails(@RequestBody FlightDetails flightDetails) throws
-			 * Exception{ String tempFrom_location = flightDetails.getFrom_location();
-			 * String tempTo_location = flightDetails.getTo_location(); FlightDetails
-			 * flightDetailsObj = null; if(tempFrom_location != null && tempTo_location !=
-			 * null) { flightDetailsObj =
-			 * service.fetchFlightDetailsByFrom_locationAndTo_location(tempFrom_location,
-			 * tempTo_location); } if(flightDetailsObj == null) { throw new
-			 * Exception("Not Available"); } return flightDetailsObj; }
-			 */
-		
-			/*
-			 * @RequestMapping("{/id}") public List<FlightDetails>
-			 * getFlight(@PathVariable("id") String id){ Passenger passenger =
-			 * restTemplate.getForObject(
-			 * "http://FlightPassenger/passenger//findAllPassenger" +id, Passenger.class);
-			 * 
-			 * return passenger.getPassAccount().stream().map(passAcconut->{ Payment payment
-			 * = restTemplate.getForObject("http://FlightPayment/payment/doPayment",
-			 * Payment.class); return new FlightDetails(); //need to add all get.emailid and
-			 * all
-			 * 
-			 * }) .collect(Collectors.toList());
-			 * 
-			 * }
-			 */
+			
+			
+			
+			 
 		
 	}
 
