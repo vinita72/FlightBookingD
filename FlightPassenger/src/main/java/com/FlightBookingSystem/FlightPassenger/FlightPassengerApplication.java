@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import com.FlightBookingSystem.FlightPassenger.model.Passenger;
 import com.FlightBookingSystem.FlightPassenger.repository.PassengerRepo;
 
+
 @SpringBootApplication
 @EnableWebSecurity
 @EnableEurekaClient

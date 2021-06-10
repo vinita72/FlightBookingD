@@ -14,8 +14,11 @@ import org.springframework.web.client.RestTemplate;
 import com.FlightBookingSystem.FlightDetails.model.FlightDetails;
 import com.FlightBookingSystem.FlightDetails.repository.FlightRepo;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 @SpringBootApplication
 @EnableEurekaClient
+@EnableSwagger2
 public class FlightDetailsApplication implements CommandLineRunner{
 
 	

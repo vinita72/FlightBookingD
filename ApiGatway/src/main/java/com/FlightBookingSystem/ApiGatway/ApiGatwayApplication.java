@@ -10,9 +10,11 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 import com.FlightBookingSystem.ApiGatway.service.ServiceGate;
 
+
 @SpringBootApplication
 @EnableZuulProxy
 @EnableCircuitBreaker
+/* @EnableSwagger2 */
 public class ApiGatwayApplication {
 
 	public static void main(String[] args) throws InterruptedException {
