@@ -57,6 +57,13 @@ import org.springframework.web.bind.annotation.RestController;
 				return "passenger deleted with id: " +id;
 			}
 			
+			
+			// fallback method
+			
+			/*
+			 * @RequestMapping("/PassengerFall") public String readingList(){ return
+			 * "Please wait"; }
+			 */
 		  @PostMapping("/registerpassenger") 
 		  public Passenger RegisterPassenger(@RequestBody Passenger passenger) throws Exception { 
 		String tempEmail = passenger.getEmailId(); 
