@@ -22,7 +22,7 @@ public class FlightDetails{
 	private int id;	
 	private String fromlocation;
 	private String tolocation;
-	private int total_seats;
+	private int totalseats;
 	//private String FirstName;
 	//private String emailId;
 	//private String paymentStatus;
@@ -34,12 +34,12 @@ public class FlightDetails{
 		super();
 	}
 
-	public FlightDetails(int id, String fromlocation, String tolocation, int total_seats, double price, String date) {
+	public FlightDetails(int id, String fromlocation, String tolocation, int totalseats, double price, String date) {
 		super();
 		this.id = id;
 		this.fromlocation = fromlocation;
 		this.tolocation = tolocation;
-		this.total_seats = total_seats;
+		this.totalseats = totalseats;
 		this.price = price;
 		this.date = date;
 	}
@@ -63,13 +63,15 @@ public class FlightDetails{
 	public void setTolocation(String tolocation) {
 		this.tolocation = tolocation;
 	}
-	public int getTotal_seats() {
-		return total_seats;
-	}
-	public void setTotal_seats(int total_seats) {
-		this.total_seats = total_seats;
+	
+
+	public int getTotalseats() {
+		return totalseats;
 	}
 
+	public void setTotalseats(int totalseats) {
+		this.totalseats = totalseats;
+	}
 
 	public double getPrice() {
 		return price;
@@ -92,7 +94,7 @@ public class FlightDetails{
 	@Override
 	public String toString() {
 		return "FlightDetails [id=" + id + ", fromlocation=" + fromlocation + ", tolocation=" + tolocation
-				+ ", total_seats=" + total_seats + ", price=" + price + ", date=" + date + "]";
+				+ ", totalseats=" + totalseats + ", price=" + price + ", date=" + date + "]";
 	}
 
 	

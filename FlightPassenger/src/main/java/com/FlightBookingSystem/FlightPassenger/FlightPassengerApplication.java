@@ -12,10 +12,13 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import com.FlightBookingSystem.FlightPassenger.model.Passenger;
 import com.FlightBookingSystem.FlightPassenger.repository.PassengerRepo;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 
 @SpringBootApplication
 @EnableWebSecurity
 @EnableEurekaClient
+@EnableSwagger2
 public class FlightPassengerApplication implements CommandLineRunner{
 	
 	@Autowired

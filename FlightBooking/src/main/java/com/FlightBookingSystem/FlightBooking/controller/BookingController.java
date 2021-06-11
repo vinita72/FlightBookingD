@@ -5,6 +5,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,14 +19,19 @@ import com.FlightBookingSystem.FlightBooking.model.Payment;
 
 
 @RestController
-@RequestMapping("/Book")
 public class BookingController {
 
 	@Autowired
 	   private RestTemplate restTemplate;
 	
+	@GetMapping("/")
+	public String booking() {
+		return "Please Login First!!";
+	}
 	
-    @RequestMapping("/{id}")
+	
+	
+    @GetMapping("/{id}")
 	public List<Booking>getBooking(@PathVariable("id") int id)
 	{
 		Passenger passenger = restTemplate.getForObject("http://FlightPassenger/passenger/findAllPassenger/" +id, Passenger.class);
