@@ -34,14 +34,16 @@ import org.springframework.web.bind.annotation.RestController;
 		  @Autowired 
 		  private PassengerService service;  
 		  
+		  
 		  @GetMapping("/findAllPassenger")
-			public List<Passenger> getPassenger(){
-				return repository.findAll();
-			}
-			
+			public List<Passenger> findAllPassenger(){
+			  return service.getPassenger();		
+			  }
+
+		  
 			@GetMapping("/findAllPassenger/{id}")
 			public Optional<Passenger> getPassenger(@PathVariable int id){
-				return repository.findById(id);
+				return service.getPassengerById(id);
 			}
 			
 			

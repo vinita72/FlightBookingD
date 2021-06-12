@@ -2,9 +2,9 @@ package com.FlightBookingSystem.FlightPayment.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.FlightBookingSystem.FlightPayment.model.Payment;
+import com.FlightBookingSystem.FlightPayment.model.PaytmDetailsPojo;
 
 
-public interface PaymentRepo extends MongoRepository<Payment, Integer> {
+public interface PaymentRepo extends MongoRepository<PaytmDetailsPojo, Integer> {
 
 }

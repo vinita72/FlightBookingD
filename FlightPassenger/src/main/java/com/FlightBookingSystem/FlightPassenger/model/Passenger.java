@@ -4,6 +4,7 @@ package com.FlightBookingSystem.FlightPassenger.model;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.data.annotation.Id;
@@ -30,7 +31,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Document
+@Document(collection ="passenger")
 public class Passenger{
 
 	@Id
@@ -55,6 +56,19 @@ public class Passenger{
 	public Passenger() {
 	
 	}
+	public Passenger(int id, String firstName, String lastName, String password, String emailId, double phoneNumber,
+			double pnrNumber, String address) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.emailId = emailId;
+		this.phoneNumber = phoneNumber;
+		this.pnrNumber = pnrNumber;
+		this.address = address;
+	}
+
 	
 	public Passenger(int id, String firstName, String lastName, String password, String emailId, double phoneNumber,
 		double pnrNumber, String address, List<PassAccount> passAccount) {
@@ -69,7 +83,10 @@ public class Passenger{
 	this.address = address;
 	this.passAccount = passAccount;
 }
+	
+	
 
+	
 	public int getId() {
 		return id;
 	}
@@ -135,6 +152,7 @@ public class Passenger{
 				+ ", emailId=" + emailId + ", phoneNumber=" + phoneNumber + ", pnrNumber=" + pnrNumber + ", address="
 				+ address + ", passAccount=" + passAccount + "]";
 	}
+	
 	
 	
 	

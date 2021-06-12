@@ -36,19 +36,27 @@ public class PassengerService {
 		 * +id; }
 		 */
   
-	
-	public Passenger savePassenger(Passenger passenger) {
-		return repository.save(passenger);
+		public List<Passenger> getPassenger(){
+			return repository.findAll();
+		}
+		
+		public Optional<Passenger> getPassengerById(@PathVariable int id){
+			return repository.findById(id);
+		}
+		
+		
+		public Passenger savePassenger(Passenger passenger) {
+			return repository.save(passenger);
+		}
+		
+		public Passenger fetchPassengerByEmailId(String emailId) {
+			return repository.findByEmailId(emailId);
+		}
+		
+		public Passenger fetchPassengerByEmailIdAndPassword(String emailId, String password) {
+			return repository.findByEmailIdAndPassword(emailId, password);
+		}
 	}
-	
-	public Passenger fetchPassengerByEmailId(String emailId) {
-		return repository.findByEmailId(emailId);
-	}
-	
-	public Passenger fetchPassengerByEmailIdAndPassword(String emailId, String password) {
-		return repository.findByEmailIdAndPassword(emailId, password);
-	}
-}
 
 //	@Override
 //	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

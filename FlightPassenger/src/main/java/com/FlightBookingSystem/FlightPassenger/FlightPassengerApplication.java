@@ -28,7 +28,6 @@ public class FlightPassengerApplication implements CommandLineRunner{
 		SpringApplication.run(FlightPassengerApplication.class, args);
 	}
 
-	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		
