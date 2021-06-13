@@ -68,7 +68,7 @@ import org.springframework.web.bind.annotation.RestController;
 			 * "Please wait"; }
 			 */
 		  @PostMapping("/registerpassenger") 
-		  public Passenger RegisterPassenger(@RequestBody Passenger passenger) throws Exception { 
+		  public String RegisterPassenger(@RequestBody Passenger passenger) throws Exception { 
 		String tempEmail = passenger.getEmailId(); 
 		if(tempEmail != null && !"".equals(tempEmail)) 
 		{ Passenger passengerObj = service.fetchPassengerByEmailId(tempEmail); 
@@ -77,7 +77,7 @@ import org.springframework.web.bind.annotation.RestController;
 			} } 
 		Passenger passengerObj = null; 
 		passengerObj = service.savePassenger(passenger); 
-		return passengerObj; 
+		return "Hi " + passenger.getFirstName()+" your Registration process successfully completed"; 
 		}
 		  
 		  @PostMapping("/loginhere") 
