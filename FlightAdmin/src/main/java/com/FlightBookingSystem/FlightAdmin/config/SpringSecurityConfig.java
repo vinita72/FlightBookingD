@@ -15,6 +15,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	
 	
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors();
@@ -27,15 +28,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 		  .httpBasic(); 
 	}
 	
-	/*
-	 * http.csrf().disable(); http.authorizeRequests()
-	 * .antMatchers("/admin").hasRole("ADMIN") // .antMatchers("/user") //
-	 * .hasAnyRole("ADMIN") .antMatchers("/admin").permitAll().and() .formLogin(); }
-	 */
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("Java").password("Password").roles("ADMIN");
+		auth.inMemoryAuthentication().withUser("Java").password("$2a$04$hRZ5qVzQ6HqW.fuGzfcIxuaMEu9Cd/amavqKh8s/cfzoDDuUHGY.G").roles("ADMIN");
 		//auth.userDetailsService(userDetailsService);
 	}
 	
@@ -68,6 +64,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * .formLogin(); }
 	 */
 		
+	/*
+	 * http.csrf().disable(); http.authorizeRequests()
+	 * .antMatchers("/admin").hasRole("ADMIN") // .antMatchers("/user") //
+	 * .hasAnyRole("ADMIN") .antMatchers("/admin").permitAll().and() .formLogin(); }
+	 */
 	
 
 //	@Bean
@@ -78,8 +79,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 //	}
 	
 	@Bean
-	public static NoOpPasswordEncoder passwordEncoder() {
-		return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+	public BCryptPasswordEncoder encoder() {
+	    return new BCryptPasswordEncoder();
 	}
 	
 }
