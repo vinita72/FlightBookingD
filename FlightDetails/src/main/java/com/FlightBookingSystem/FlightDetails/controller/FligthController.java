@@ -31,16 +31,11 @@ import com.FlightBookingSystem.FlightDetails.service.FlightService;
 public class FligthController {
 
 		
-		
-		
 		@Autowired
 		private FlightRepo repository;
 		
 		@Autowired
 		private FlightService service;
-		
-		
-		
 		
 		
 		
@@ -60,36 +55,12 @@ public class FligthController {
 			    }
 			
 			   
+			   
 			    @PutMapping("/update")
 			    public FlightDetails updateFlight(@RequestBody FlightDetails flightDetails) {
 			        return service.updateFlightDetails(flightDetails);
 			    }
-			    
-			/*
-			 * @GetMapping("/findAllFlightDetails/{date}") public Optional<FlightDetails>
-			 * findProductByName1(@PathVariable String date) { return
-			 * repository.findByDate(date); }
-			 * 
-			 */
-			/*
-			 * @GetMapping("/findAllFlightDetail/{date}") public FlightDetails
-			 * findProductByName(@PathVariable String date) { return
-			 * service.fetchFlightByDate(date); }
-			 */
-			
-			/*
-			 * @GetMapping("/findAllFlightDetails/{date}") public Optional<FlightDetails>
-			 * getFlightDetails(@PathVariable String date){ return
-			 * repository.findByDate(date); }
-			 */
-			
-			/*
-			 * @PutMapping("/update/{id}") public ResponseEntity<?>
-			 * saveResource(@RequestBody Passenger passenger,
-			 * 
-			 * @PathVariable("id") String id) { service.savePassenger(passenger); return
-			 * ResponseEntity.ok("resource saved"); }
-			 */
+		
 			
 			@DeleteMapping("/delete/{id}")
 			public String deleteFlightDetails(@PathVariable int id) {
@@ -139,6 +110,31 @@ public class FligthController {
 	}
 
 
+	/*
+	 * @GetMapping("/findAllFlightDetails/{date}") public Optional<FlightDetails>
+	 * findProductByName1(@PathVariable String date) { return
+	 * repository.findByDate(date); }
+	 * 
+	 */
+	/*
+	 * @GetMapping("/findAllFlightDetail/{date}") public FlightDetails
+	 * findProductByName(@PathVariable String date) { return
+	 * service.fetchFlightByDate(date); }
+	 */
+	
+	/*
+	 * @GetMapping("/findAllFlightDetails/{date}") public Optional<FlightDetails>
+	 * getFlightDetails(@PathVariable String date){ return
+	 * repository.findByDate(date); }
+	 */
+	
+	/*
+	 * @PutMapping("/update/{id}") public ResponseEntity<?>
+	 * saveResource(@RequestBody Passenger passenger,
+	 * 
+	 * @PathVariable("id") String id) { service.savePassenger(passenger); return
+	 * ResponseEntity.ok("resource saved"); }
+	 */
 
 /*
  * @GetMapping() public String hello() { String url =
