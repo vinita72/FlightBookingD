@@ -37,7 +37,7 @@ public class PassengerController {
 	
 	@GetMapping("/findAllUsers")
 	 public List<Users> findAllUser(){
-		  return userservice.getUser();		
+		  return userservice.getUsers();		
 		  } 
 	
 	@SuppressWarnings({"unchecked", "rawtypes"})

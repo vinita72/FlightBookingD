@@ -31,17 +31,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   
   @Override
   protected void configure(HttpSecurity http) throws Exception {
+	  http.cors();
     http
       .csrf().disable()
       .authorizeRequests().antMatchers(HttpMethod.OPTIONS, "**/**").permitAll()
       .antMatchers("/api/v1/findAllUsers").hasAnyAuthority("ADMIN") .anyRequest().authenticated()
         .and()
-        .formLogin().permitAll()
-        .and().httpBasic();
+        .httpBasic();
 		
   }
  
-  
+	/*
+	 * @Override protected void configure(AuthenticationManagerBuilder auth) throws
+	 * Exception { auth.inMemoryAuthentication().withUser("Java").password(
+	 * "$2a$04$hRZ5qVzQ6HqW.fuGzfcIxuaMEu9Cd/amavqKh8s/cfzoDDuUHGY.G").roles("ADMIN"
+	 * ); //auth.userDetailsService(userDetailsService); }
+	 */
+	
   
   
   @Bean
@@ -51,6 +57,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
  
   @Override
   public void configure(AuthenticationManagerBuilder builder) throws Exception {
+	 builder.inMemoryAuthentication().withUser("Java").password("$2a$04$hRZ5qVzQ6HqW.fuGzfcIxuaMEu9Cd/amavqKh8s/cfzoDDuUHGY.G").roles("ADMIN");
     builder.userDetailsService(userDetailsService);
   }
 }

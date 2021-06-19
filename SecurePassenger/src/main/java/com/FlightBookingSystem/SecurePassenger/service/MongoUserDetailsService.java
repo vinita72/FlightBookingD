@@ -35,7 +35,9 @@ public class MongoUserDetailsService implements UserDetailsService{
  
     return new User(user.getUsername(), user.getPassword(), authorities);
   }
-		public List<Users> getUser() {
+  
+  
+		public List<Users> getUsers() {
 			return repository.findAll();	
 			
 		}

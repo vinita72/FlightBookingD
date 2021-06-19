@@ -8,7 +8,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 
@@ -17,7 +23,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 		DataSourceTransactionManagerAutoConfiguration.class,
 		HibernateJpaAutoConfiguration.class
 })
-@CrossOrigin(origins ="*")
+@CrossOrigin(origins ="http://localhost:4200/")
+@EnableEurekaClient
+@EnableSwagger2
 public class SecurePassengerApplication{
 	
 	private static final Logger Log =LoggerFactory.getLogger(SecurePassengerApplication.class);
@@ -30,7 +38,15 @@ public class SecurePassengerApplication{
 		
 	}
 	
-	
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/api/v1/users").allowedOrigins("http://localhost:4200");
+			}
+		};
+	}
 	
 	
 	
