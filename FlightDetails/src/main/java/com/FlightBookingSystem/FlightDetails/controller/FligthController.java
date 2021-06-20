@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.FlightBookingSystem.FlightDetails.exception.ResourceNotFoundException;
 //import com.FlightBookingSystem.FlightDetails.common.Payment;
 //import com.FlightBookingSystem.FlightDetails.common.TransactionRequest;
 //import com.FlightBookingSystem.FlightDetails.common.TransactionResponse;
@@ -54,13 +55,29 @@ public class FligthController {
 			        return repository.findByDate(date);
 			    }
 			
+			   @PutMapping("/flightupdate/{id}")  
+			   public ResponseEntity<FlightDetails> updateFlightDetails(@PathVariable int id, @RequestBody FlightDetails flightDetails){
+				   FlightDetails flight = repository.findById(id).orElseThrow(()-> new ResourceNotFoundException("flight not exsist with id" +id));
+					
+				   flight.setDate(flightDetails.getDate());
+				   flight.setFromlocation(flightDetails.getFromlocation());
+				   flight.setTolocation(flightDetails.getTolocation());
+				   flight.setTotalseats(flightDetails.getTotalseats());
+				   flight.setPrice(flightDetails.getPrice());
+						   
+				   FlightDetails updatedFlight = repository.save(flight);
+					return ResponseEntity.ok(updatedFlight);   
+						   		   
+			   }
+						   
+						   
 			   
 			   
-			    @PutMapping("/update")
-			    public FlightDetails updateFlight(@RequestBody FlightDetails flightDetails) {
-			        return service.updateFlightDetails(flightDetails);
-			    }
-		
+				/*
+				 * @PutMapping("/update") public FlightDetails updateFlight(@RequestBody
+				 * FlightDetails flightDetails) { return
+				 * service.updateFlightDetails(flightDetails); }
+				 */
 			
 			@DeleteMapping("/delete/{id}")
 			public String deleteFlightDetails(@PathVariable int id) {
