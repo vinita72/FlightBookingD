@@ -1,6 +1,8 @@
 package com.FlightBookingSystem.SecurePassenger.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,13 +11,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.FlightBookingSystem.SecurePassenger.exception.ResourceNotFoundException;
 import com.FlightBookingSystem.SecurePassenger.model.Users;
+import com.FlightBookingSystem.SecurePassenger.repository.UsersRepository;
 import com.FlightBookingSystem.SecurePassenger.service.MongoUserDetailsService;
 
 @RestController
@@ -28,6 +34,8 @@ public class PassengerController {
 	@Autowired
 	private MongoUserDetailsService userservice;
 	
+	@Autowired
+	private UsersRepository repository;;
 	
 	@GetMapping("/test")
 	public String Hello() {
@@ -60,13 +68,17 @@ public class PassengerController {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
+	// delete employee rest api
+		@DeleteMapping("/delete/{id}")
+		public ResponseEntity<Map<String, Boolean>> deleteUser(@PathVariable String id){
+			Users user = repository.findById(id)
+					.orElseThrow(() -> new ResourceNotFoundException("User not exist with id :" + id));
+			
+			repository.delete(user);
+			Map<String, Boolean> response = new HashMap<>();
+			response.put("deleted", Boolean.TRUE);
+			return ResponseEntity.ok(response);
+		}
 	
 	
 	
