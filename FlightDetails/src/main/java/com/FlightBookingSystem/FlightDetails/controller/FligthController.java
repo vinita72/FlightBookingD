@@ -50,11 +50,16 @@ public class FligthController {
 				return repository.findById(id);
 			}
 			
+			
+			
 			   @GetMapping("/findAllFlightDetail/{date}")
 			    public FlightDetails getFlightDetails(@PathVariable String date) {
-			        return repository.findByDate(date);
+			        return service.fetchFlightByDate(date);
 			    }
 			
+			   
+			   
+			   
 			   @PutMapping("/flightupdate/{id}")  
 			   public ResponseEntity<FlightDetails> updateFlightDetails(@PathVariable int id, @RequestBody FlightDetails flightDetails){
 				   FlightDetails flight = repository.findById(id).orElseThrow(()-> new ResourceNotFoundException("flight not exsist with id" +id));
